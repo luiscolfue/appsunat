@@ -1,0 +1,43 @@
+<div class="example-header mat-elevation-z8">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" 
+    placeholder="Escriba algo para filtrar">
+  </mat-form-field>
+</div>
+<br>
+<div class="example-container mat-elevation-z8">
+  <mat-table [dataSource]="dataSource" matSort>
+    <!--  Columna ID-->
+    <ng-container matColumnDef="Id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Id</mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.Id}} </mat-cell>
+    </ng-container>
+
+    <!-- Columna Apellido -->
+    <ng-container matColumnDef="Apellido">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Cod_Equipa</mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.Apellido}} </mat-cell>
+    </ng-container>
+
+    <!-- Columna Nombre-->
+    <ng-container matColumnDef="Nombre">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha_Registro </mat-header-cell>
+  <mat-cell *matCellDef="let row"> {{row.Nombre}} </mat-cell>
+    </ng-container>
+
+    <!-- Columna Nacionalidad -->
+    <ng-container matColumnDef="Nacionalidad">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Estado</mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.Nacionalidad}} </mat-cell>
+    </ng-container>
+
+     <!-- Columna Edad -->
+     <ng-container matColumnDef="Edad">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Edad </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.Edad}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns" class="encabezado"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+</div>
